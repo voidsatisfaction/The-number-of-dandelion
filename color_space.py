@@ -268,7 +268,7 @@ def get_dandalion_number(
     return answer
 
 if __name__ == '__main__':
-    # FILE_NAME = 'answer_without_4x4_with_threshold_with_overlap_strategy_with_area_strategy5.csv'
+    # FILE_NAME = 'answer_without_4x4_with_threshold_with_overlap_strategy_with_area_strategy6.csv'
 
     # all_file_path_list = [ f'./images/test40/flower ({i}).jpg' for i in range(1, 41) ]
 
@@ -280,10 +280,10 @@ if __name__ == '__main__':
     #     for i, file_path in enumerate(all_file_path_list):
     #         answer = get_dandalion_number(
     #             file_path,
-    #             lower_yellow=(20, 140, 130),
+    #             lower_yellow=(20, 140, 140),
     #             upper_yellow=(30, 255, 255),
     #             show_picture=False,
-    #             minimum_pixel_threshold=10,
+    #             minimum_pixel_threshold=8,
     #             pixel_num_bounding_box_area_ratio_threshold=0.7,
     #             suspected_overlapped_cluster_size_ratio=1.6,
     #             definite_overlapped_cluster_size_ratio=2.0
@@ -294,13 +294,13 @@ if __name__ == '__main__':
 
     #         print(f'file number: {file_number} done')
     
-    file_path = './images/test40/flower (30).jpg'
+    file_path = './images/test40/flower (24).jpg'
     get_dandalion_number(
         file_path,
-        lower_yellow=(20, 140, 130),
+        lower_yellow=(20, 140, 140),
         upper_yellow=(30, 255, 255),
         show_picture=True,
-        minimum_pixel_threshold=10,
+        minimum_pixel_threshold=8,
         pixel_num_bounding_box_area_ratio_threshold=0.7,
         suspected_overlapped_cluster_size_ratio=1.6,
         definite_overlapped_cluster_size_ratio=2.0
