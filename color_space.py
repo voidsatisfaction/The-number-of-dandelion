@@ -187,7 +187,7 @@ def get_dandalion_number(
 
     answer = total_cluster_num
     overlapped_cluster_info_list = []
-    if total_cluster_num >= 15:
+    if total_cluster_num >= 10:
         overlapped_cluster_info_list = [
             cluster_info for cluster_info in cluster_info_list
                 if is_overlapped(cluster_info, median_pixel_num) is True
@@ -268,7 +268,7 @@ def get_dandalion_number(
     return answer
 
 if __name__ == '__main__':
-    # FILE_NAME = 'answer_without_4x4_with_threshold_with_overlap_strategy_with_area_strategy4.csv'
+    # FILE_NAME = 'answer_without_4x4_with_threshold_with_overlap_strategy_with_area_strategy5.csv'
 
     # all_file_path_list = [ f'./images/test40/flower ({i}).jpg' for i in range(1, 41) ]
 
@@ -280,9 +280,10 @@ if __name__ == '__main__':
     #     for i, file_path in enumerate(all_file_path_list):
     #         answer = get_dandalion_number(
     #             file_path,
-    #             lower_yellow=(20, 130, 130),
+    #             lower_yellow=(20, 140, 130),
     #             upper_yellow=(30, 255, 255),
-    #             minimum_pixel_threshold=12,
+    #             show_picture=False,
+    #             minimum_pixel_threshold=10,
     #             pixel_num_bounding_box_area_ratio_threshold=0.7,
     #             suspected_overlapped_cluster_size_ratio=1.6,
     #             definite_overlapped_cluster_size_ratio=2.0
@@ -293,13 +294,13 @@ if __name__ == '__main__':
 
     #         print(f'file number: {file_number} done')
     
-    file_path = './images/test40/flower (12).jpg'
+    file_path = './images/test40/flower (30).jpg'
     get_dandalion_number(
         file_path,
-        lower_yellow=(20, 130, 120),
+        lower_yellow=(20, 140, 130),
         upper_yellow=(30, 255, 255),
         show_picture=True,
-        minimum_pixel_threshold=12,
+        minimum_pixel_threshold=10,
         pixel_num_bounding_box_area_ratio_threshold=0.7,
         suspected_overlapped_cluster_size_ratio=1.6,
         definite_overlapped_cluster_size_ratio=2.0
