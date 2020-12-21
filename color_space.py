@@ -194,7 +194,7 @@ def get_dandalion_number(
         ]
 
     for overlapped_cluster_info in overlapped_cluster_info_list:
-        overlapped_cluster_num = max(round(overlapped_cluster_info.pixel_num/(1 * max(median_pixel_num, 50))), 2)
+        overlapped_cluster_num = max(round(overlapped_cluster_info.pixel_num/(0.9 * max(median_pixel_num, 50))), 2)
         answer += (overlapped_cluster_num - 1)
 
         overlapped_cluster_info.dandalion_number = overlapped_cluster_num
@@ -268,40 +268,40 @@ def get_dandalion_number(
     return answer
 
 if __name__ == '__main__':
-    # FILE_NAME = 'answer_without_4x4_with_threshold_with_overlap_strategy_with_area_strategy6.csv'
+    FILE_NAME = 'answer_without_4x4_with_threshold_with_overlap_strategy_with_area_strategy7.csv'
 
-    # all_file_path_list = [ f'./images/test40/flower ({i}).jpg' for i in range(1, 41) ]
+    all_file_path_list = [ f'./images/test40/flower ({i}).jpg' for i in range(1, 41) ]
 
-    # with open(FILE_NAME, 'w', newline='') as csvfile:
-    #     answer_csv_writer = csv.writer(csvfile, delimiter=',')
+    with open(FILE_NAME, 'w', newline='') as csvfile:
+        answer_csv_writer = csv.writer(csvfile, delimiter=',')
 
-    #     answer_csv_writer.writerow([',', 'target'])
+        answer_csv_writer.writerow([',', 'target'])
 
-    #     for i, file_path in enumerate(all_file_path_list):
-    #         answer = get_dandalion_number(
-    #             file_path,
-    #             lower_yellow=(20, 140, 140),
-    #             upper_yellow=(30, 255, 255),
-    #             show_picture=False,
-    #             minimum_pixel_threshold=8,
-    #             pixel_num_bounding_box_area_ratio_threshold=0.7,
-    #             suspected_overlapped_cluster_size_ratio=1.6,
-    #             definite_overlapped_cluster_size_ratio=2.0
-    #         )
+        for i, file_path in enumerate(all_file_path_list):
+            answer = get_dandalion_number(
+                file_path,
+                lower_yellow=(20, 140, 140),
+                upper_yellow=(30, 255, 255),
+                show_picture=False,
+                minimum_pixel_threshold=8,
+                pixel_num_bounding_box_area_ratio_threshold=0.7,
+                suspected_overlapped_cluster_size_ratio=1.6,
+                definite_overlapped_cluster_size_ratio=2.0
+            )
 
-    #         file_number = i+1
-    #         answer_csv_writer.writerow([f'flower ({file_number}).jpg', answer])
+            file_number = i+1
+            answer_csv_writer.writerow([f'flower ({file_number}).jpg', answer])
 
-    #         print(f'file number: {file_number} done')
+            print(f'file number: {file_number} done')
     
-    file_path = './images/test40/flower (24).jpg'
-    get_dandalion_number(
-        file_path,
-        lower_yellow=(20, 140, 140),
-        upper_yellow=(30, 255, 255),
-        show_picture=True,
-        minimum_pixel_threshold=8,
-        pixel_num_bounding_box_area_ratio_threshold=0.7,
-        suspected_overlapped_cluster_size_ratio=1.6,
-        definite_overlapped_cluster_size_ratio=2.0
-    )
+    # file_path = './images/test40/flower (20).jpg'
+    # get_dandalion_number(
+    #     file_path,
+    #     lower_yellow=(20, 140, 140),
+    #     upper_yellow=(30, 255, 255),
+    #     show_picture=True,
+    #     minimum_pixel_threshold=8,
+    #     pixel_num_bounding_box_area_ratio_threshold=0.7,
+    #     suspected_overlapped_cluster_size_ratio=1.6,
+    #     definite_overlapped_cluster_size_ratio=2.0
+    # )
