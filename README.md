@@ -1,6 +1,6 @@
 # Dandelion counter 알고리즘 설명서
 
-연규민
+작성자: 연규민
 
 ## dependency
 
@@ -11,7 +11,7 @@
 
 키워드
 
-RGB to HSV, opening, dfs, minimum bounding box
+**RGB to HSV, opening, dfs, minimum bounding box**
 
 - 이미지를 리사이징 합니다.
 - RGB color space image를 HSV color space image로 변환 시킵니다.
@@ -28,11 +28,11 @@ RGB to HSV, opening, dfs, minimum bounding box
     - 2# 아래의 두가지 경우를 만족하면 overlap으로 판단합니다.
       - overlapped 클러스터인지 판정하고 싶은 클러스터가 포함하는 픽셀개수가, 이미지 전체 cluster 들의 pixel number의 median보다 1.6배(파라미터) 보다 많은 경우
       - overlapped 클러스터인지 판정하고 싶은 클러스터가 포함하는 픽셀개수가, 해당 클러스터의 픽셀의 minimum bounding box의 넓이의 0.7배 보다 작은 경우
-        - 일반적인 overlapped이 아닌 민들레의 경우, minimum bounding box와 cluster픽셀 개수의 차가 그다지 크지 않음에 착안
+          - 일반적인 overlapped이 아닌 민들레의 경우, minimum bounding box와 cluster픽셀 개수의 차가 그다지 크지 않음에 착안
 - overlapped cluster가 실제로 몇개가 겹쳐있는지 구합니다.
   - 겹쳐있는 개수 판단 기준은 다음과 같습니다.
-    - overlapped 로 판정된 클러스터의 픽셀 개수를 이미지 전체 cluster 들의 pixel number의 median과 50 pixel 중 더 큰 값으로 나누고 소수 첫쨰자리로 반올림을 한 값을 겹쳐있는 개수로 판단합니다.
-    - 단, overlapped cluster는 무조건 겹쳐있음이 보장되므로 개수는 2이상이어야 합니다.
+     - overlapped 로 판정된 클러스터의 픽셀 개수를 이미지 전체 cluster 들의 pixel number의 median과 50 pixel 중 더 큰 값으로 나누고 소수 첫쨰자리로 반올림을 한 값을 겹쳐있는 개수로 판단합니다.
+  - 단, overlapped cluster는 무조건 겹쳐있음이 보장되므로 개수는 2이상이어야 합니다.
 - overlapped cluster와 겹친 개수를 고려한 조정답을 구합니다.
 - 답을 출력합니다.
 
@@ -41,3 +41,21 @@ RGB to HSV, opening, dfs, minimum bounding box
 - `if __name__ == '__main__'` 아래의 #for check로 되어있는 부분 아래를 주석 해제합니다.
 - `file_path`를 분석을 원하는 파일 패스로 설정합니다.
 - `dandelion_counter.get_dandelion_number(show_picture=True)`인것을 확인하고 실행하면, 눈으로 직접 알고리즘이 어떤 영역을 민들레로 판단했고, 해당 영역에 민들레가 몇개가 들어있는지 판단한 것을 숫자로 나타낸 이미지를 확인할 수 있습니다.
+
+## 동작 예시
+
+Example1
+
+![](./example1.png)
+
+Example2
+
+![](./example2.png)
+
+Example3
+
+![](./example3.png)
+
+Example4
+
+![](./example4.png)
