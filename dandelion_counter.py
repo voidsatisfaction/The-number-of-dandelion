@@ -10,6 +10,7 @@ Cluter information of dandelion pixels
 '''
 class ClusterInfo:
     def __init__(self):
+        # minimum bounding box coordinates
         self.l = math.inf
         self.r = -math.inf
         self.u = math.inf
@@ -221,13 +222,14 @@ class DandelionCounter:
         cluster_info: ClusterInfo,
         median_pixel_num: int,
     ) -> bool:
+        # judge whether the cluster is overlapped or not by three criteria
+        # 1: current cluster pixel number is equal or greater than maximum of 2 * median pixel number or 100pixels
         threshold = 100
         if cluster_info.pixel_num >= max(2*median_pixel_num, threshold):
             return True
 
-        # judge whether the cluster is overlapped or not by two criteria
-        # 1: current cluster pixel number is equal or greater than median pixel number * parameter
-        # 2: pixel_num_bounding_box_area_ratio is equal or smaller than parameter
+        # 2: current cluster pixel number is equal or greater than median pixel number * parameter and
+        # pixel_num_bounding_box_area_ratio is equal or smaller than parameter
         pixel_num = cluster_info.pixel_num
         pixel_num_bounding_box_area_ratio = round(pixel_num / cluster_info.minimum_bounding_box_area * 100) / 100
         if cluster_info.pixel_num >= self._suspected_overlapped_cluster_size_ratio * median_pixel_num and \
@@ -327,7 +329,7 @@ if __name__ == '__main__':
         suspected_overlapped_cluster_size_ratio=1.6,
     )
 
-    OUTPUT_FILE_NAME = 'answer_without_4x4_with_threshold_with_overlap_strategy_with_area_strategy666.csv'
+    OUTPUT_FILE_NAME = 'answer_without_4x4_with_threshold_with_overlap_strategy_with_area_strategy6.csv'
 
     all_file_path_list = [ f'./images/test40/flower ({i}).jpg' for i in range(1, 41) ]
 
@@ -348,7 +350,7 @@ if __name__ == '__main__':
             print(f'file number: {file_number} done')
     
     # for check
-    # file_path = './images/test40/flower (24).jpg'
+    # file_path = './images/test40/flower (38).jpg'
 
     # dandelion_counter = DandelionCounter(
     #     lower_yellow=(20, 140, 140),
