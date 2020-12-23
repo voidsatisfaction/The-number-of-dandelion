@@ -42,20 +42,22 @@
 - `file_path`를 분석을 원하는 파일 패스로 설정합니다.
 - `dandelion_counter.get_dandelion_number(show_picture=True)`인것을 확인하고 실행하면, 눈으로 직접 알고리즘이 어떤 영역을 민들레로 판단했고, 해당 영역에 민들레가 몇개가 들어있는지 판단한 것을 숫자로 나타낸 이미지를 확인할 수 있습니다.
 
+- - -
+
 ## 동작 예시
 
-Example1
+### Example1
 
 ![](./example1.png)
 
-Example2
+### Example2
 
 ![](./example2.png)
 
-Example3
+### Example3
 
 ![](./example3.png)
 
-Example4
+### Example4
 
 ![](./example4.png)
